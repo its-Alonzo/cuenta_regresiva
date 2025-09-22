@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="alonzo1.png" type="image/png">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alonzo - Lanzamiento</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: url(fondo.png) no-repeat center center/cover; 
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    .logo {
+      width: 950px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: 30px;
+      letter-spacing: 2px;
+    }
+
+    #countdown {
+      font-size: 40px;
+      font-weight: bold;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px 40px;
+      border-radius: 10px;
+      margin-bottom: 40px;
+    }
+
+    .social {
+      margin-top: 20px;
+      display: flex;
+      gap: 40px;
+    }
+
+    .social a {
+      color: white;
+      text-decoration: none;
+      font-size: 20px;
+      transition: 0.3s;
+    }
+    .music-buttons {
+  text-align: center;
+  margin-top: 20px;
+}
+    .social a:hover {
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <!-- Logo -->
+  <img src="logo.png" alt="Alonzo" class="logo">
+
+  <!-- Texto -->
+  <h2>PREPÁRATE PARA EL LANZAMIENTO</h2>
+
+  <!-- Cuenta regresiva -->
+  <div id="countdown"></div>
+
+</div>
+
+
+  <!-- Redes sociales -->
+  <div class="social">
+    <a href="https://www.instagram.com/it.s_alonzo" target="_blank">INSTAGRAM</a>
+    <a href="https://www.tiktok.com/@it.s_alonzo" target="_blank">TIKTOK</a>
+    <a href="https://open.spotify.com/playlist/6AjwmSaHEeEsnF5M4tUauD" target="_blank">SPOTIFY</a>
+    
+    
+  </div>
+
+  <script>
+    // Configura la fecha del lanzamiento
+    var lanzamiento = new Date("Sep 26, 2025 00:00:00").getTime();
+
+    var x = setInterval(function() {
+      var ahora = new Date().getTime();
+      var diferencia = lanzamiento - ahora;
+
+      var dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+      var horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+      var segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML = 
+        dias + "d " + horas + "h " + minutos + "m " + segundos + "s ";
+
+      if (diferencia < 0) {
+        clearInterval(x);
+        document.getElementById("countdown").innerHTML = "¡Ya está disponible!";
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
